@@ -1,0 +1,24 @@
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - Trial 2</title>
+      {% else %}
+      <title> There's no title!</title>
+      {% endif %}
+    <style>
+        h1{color: darkgreen; text-align: left; border: aliceblue;}
+    </style>
+    </head>
+    <body>
+        <div>Go to: <a href="/index">Next Page</a></div>  <!-- creates a hyperlink to a webpage at the top -->
+        <hr>
+        <h1> {{ heading }}</h1>
+{#        <h1 style="color: tomato; text-align: center"> This is a heading</h1>#}
+            <p>
+                Here is the table for {{ table_name }}.
+            </p>
+        <hr>
+{#  the hr tag defines a thematic break#}
+        {% block content %}{% endblock %}
+    </body>
+</html>

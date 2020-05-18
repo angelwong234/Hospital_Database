@@ -1,0 +1,62 @@
+<html>
+<style>
+        html{background-color: #87CEEB}
+
+         form.button{
+            margin-top: 10px;
+            margin-right: 20px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            font-family: "Trebuchet MS";
+        }
+
+        div.flex-answer{
+            display: flex;
+            flex-direction: column;
+            width: 600px;
+            background-color: white;
+            border-radius: 25px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            margin-left: 15px;
+            padding: 20px;
+
+        }
+
+                    table {
+        border-collapse: collapse;
+        width: 100%;
+}
+
+        th, td {
+        text-align: left;
+        padding: 8px;
+        }
+
+tr:nth-child(even){background-color: lavenderblush}
+tr:hover {background-color:#f5f5f5;}
+
+th {
+  background-color: palevioletred;
+  color: white;
+}
+
+    </style>
+<meta charset="UTF-8"/>
+<title>Database History</title>
+<button onclick="goBack()"> Go Back </button>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+<form class = "button" action="/patient-portal"> <input type="submit" value="Go back to patient portal"></form>
+<body>
+    <p style="font-family: 'Trebuchet MS'; color: white; font-size: 140%; margin-left: 5px">Database History</p>
+    <div class = flex-answer>
+        <p style="margin-bottom: 10px; margin-left: 10px; font-family: 'Trebuchet MS'"> Recent database changes:</p>
+        {{result | safe}}
+    </div>
+</body>
+</html>

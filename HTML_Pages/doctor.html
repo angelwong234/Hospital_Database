@@ -1,0 +1,128 @@
+<html>
+    <meta charset="UTF-8"/>
+    <style>
+        html{background-color: #87CEEB}
+
+
+        div.option{
+            margin-top: 20px;
+            margin-bottom: 15px;
+            margin-left: 15px;
+            border-radius: 25px;
+            background: white;
+            padding: 20px;
+            width: 600px;
+            height: 110px;
+            font-family: "Trebuchet MS";
+        }
+
+        div.flex-answer{
+            display: flex;
+            flex-direction: column;
+            width: 600px;
+            background-color: white;
+            border-radius: 25px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            margin-left: 15px;
+            padding: 20px;
+
+        }
+
+                table {
+        border-collapse: collapse;
+        width: 100%;
+}
+
+        th, td {
+        text-align: left;
+        padding: 8px;
+        }
+
+tr:nth-child(even){background-color: lavenderblush}
+tr:hover {background-color:#f5f5f5;}
+
+th {
+  background-color: palevioletred;
+  color: white;
+}
+
+        form.button{
+            margin-top: 10px;
+            margin-right: 20px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            font-family: "Trebuchet MS";
+        }
+    </style>
+    <title>Find a doctor</title>
+    <body>
+    <form class = "button" action="/patient-portal"> <input type="submit" value="Go back to patient portal"></form>
+    <form class = "button" action="/cost"><input type="submit" value="Get the cost of your procedure"></form>
+    <form class = "button" action="/learn-more"><input type="submit" value="Learn more about your doctor"></form>
+    <form class = "button" action="/department"><input type="submit" value="Get department rankings and wait times"></form>
+   <p style="font-family: 'Trebuchet MS'; color: white; font-size: 140%; margin-left: 5px">
+       Are you searching for a doctor for your procedure?</p>
+
+   <form action = "/doctor" method = "post">
+       <div class = "option">
+       <p>
+           <p style="margin-left: 10px; padding-top: 10px">Find the procedures that your doctor performs:</p>
+           <p style="margin-left: 100px"> Enter your doctor's name here:
+               <input type = "text" name = "Doctor" list="doc_list"/></p>
+           <datalist id = "doc_list">
+               {% for name in doc_list%}
+               <option value="{{ name }}">{{ name }}</option>
+               {% endfor %}
+           </datalist>
+           <p style="padding-bottom: 50px""> <input type = "submit" value = "submit"></p>
+       </div>
+
+       <div class="flex-answer">
+           <p style="margin-bottom: 10px; margin-left: 10px; font-family: 'Trebuchet MS'">{{doc_print}}</p>
+           {{doc_result | safe}}
+       </div>
+
+       <div class = "option">
+
+           <p style="margin-left: 10px">Find the procedures performed at your hospital </p>
+           <p style="margin-left: 100px">Enter the hospital name here:
+               <input type = "text" name = "Hospital" list="hosp_list"/></p>
+           <datalist id = "hosp_list">
+               {% for name in hosp_list%}
+               <option value="{{ name }}">{{ name }}</option>
+               {% endfor %}
+           </datalist>
+           <p style="padding-bottom: 50px"> <input type = "submit" value = "submit"/></p>
+       </div>
+
+       <div class="flex-answer">
+           <p style="margin-bottom: 10px; margin-left: 10px; font-family: 'Trebuchet MS'">{{hosp_print}}</p>
+           {{hosp_result | safe}}
+       </div>
+
+
+       <div class = "option">
+           <p style="margin-left: 10px">Find a doctor for your procedure</p>
+           <p style="margin-left: 100px">Enter the name of a procedure here:
+               <input type = "text" name = "Procedure" list="proc_list"/></p>
+
+           <datalist id = "proc_list">
+               {% for name in name_proc%}
+               <option value="{{ name }}">{{ name }}</option>
+               {% endfor %}
+           </datalist>
+           <p> <input type = "submit" value = "submit"/></p>
+
+        </div>
+
+       <div class="flex-answer">
+           <p style="margin-bottom: 10px; margin-left: 10px; font-family: 'Trebuchet MS'">{{proc_print}}</p>
+           {{proc_result | safe}}
+       </div>
+      </form>
+   </body>
+
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adding a Hospital</title>
+</head>
+<body>
+<h1>Adding A Hospital</h1>
+<p>You must fill all fields or your changes will not be saved.</p>
+<div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+</div>
+    <form action="/addHospital", method="POST">
+        Hospital Name: <input type="text" name="Hospital Name"><br>
+        Street: <input type="text" name="Street"><br>
+        Zipcode: <input type="text" name="Zipcode"><br>
+        City: <input type="text" name="City"><br>
+        State: <input type="text" name="State"><br>
+  <input type="submit" value="Submit">
+       <div><a href="boss">logout</a></div>
+</form>
+</body>
+</html>

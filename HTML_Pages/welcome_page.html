@@ -1,0 +1,44 @@
+
+<html>
+<head>
+    <title>Welcome</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="/static/stylew.css?version=3.2" type="text/css">
+</head>
+
+
+
+<form action="/" method="POST">
+
+	<div class="Welcome">
+		<div class="Welcome-screen">
+			<div class="app-title">
+				<h1>Welcome</h1>
+                <h2>Best tool to search surgical costs!</h2>
+			</div>
+            <div class="box">
+                {% with messages = get_flashed_messages() %}
+
+                {% if messages %}
+                    <div class="notification is-danger">
+                        {{ messages[0] }}
+                    </div>
+                {% endif %}
+                {% endwith %}
+            </div>
+
+			<div class="Welcome-form">
+			<div class="control-group">
+                <a href=”/login”><input type="submit" value="Patient Access" name="Patient Access" class="btn btn-primary" ></a>
+			</div>
+
+			<div class="control-group">
+				<input type="submit" value="Admin Access" name="Admin Access" class="btn btn-primary" >
+			</div>
+
+			</div>
+		</div>
+    <div style="position:absolute; bottom:5px;">Created by: Angel Wong and Nikhita Puthuveetil</div>
+	</div>
+</form>
+</html>

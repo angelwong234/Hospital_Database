@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        form.button{
+            margin-top: 10px;
+            margin-right: 20px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            font-family: "Trebuchet MS";
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Manager Page</title>
+
+    <form class = "button" action="/patient-portal"> <input type="submit" value="Visit patient portal"></form>
+    <form class = "button" action="/log"> <input type="submit" value="See database history"></form>
+    <form class = "button" action="/sign_out"> <input type="submit" value="Logout"></form>
+
+</head>
+<body>
+    <h3>Welcome!</h3>
+{#    <div class="form-group">#}
+{#            <label class="sr-only" for="rating">Adding a new department to an Existing Hospital</label>#}
+{#            <select class="form-control" id="rating" name="rating">#}
+{#                <option value="Adding a new hospital">5</option>#}
+{#                <option value="Updating Hopsital">4</option>#}
+{#                <option value="Deleting Hopsital and all its data" selected>3</option>#}
+{#            </select>#}
+{#    </div>#}
+    <div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="notification is-danger">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+
+    <form  action="/boss" method="POST" name="myForm" >
+
+{##########################################################################################################################}
+{##}
+{## R1 Hospital#}
+{##}
+{##########################################################################################################################}
+        <p><font size="4">
+            <label class="sr-only" for="rating" font size="6">Make changes to Hospital Table</label>
+        </font></p>
+
+        <p>
+        <input type="radio" name="options" value="Add Hospital" checked> Adding a new hospital <br>
+        <input type="radio" name="options" value="Delete Hospital"> Deleting Hospital and all its data <br>
+        </p>
+
+
+
+
+
+{##########################################################################################################################}
+{##}
+{## R2 User#}
+{##}
+{##########################################################################################################################}
+
+         <p><font size="4">
+            <label class="sr-only" for="rating" font size="6">Make changes to User Table </label>
+        </font></p>
+
+        <p>
+        <input type="radio" name="options" value="Update User"> Updating User<br>
+        <input type="radio" name="options" value="Delete User"> Deleting User and all its data <br>
+        </p>
+
+
+
+{##########################################################################################################################}
+{##}
+{## R3 department#}
+{##}
+{##########################################################################################################################}
+
+
+         <p><font size="4">
+            <label class="sr-only" for="rating" font size="6">Changing departments in hospital</label>
+        </font></p>
+
+        <p>
+        <input type="radio" name="options" value="Add Department"> Adding a new department <br>
+        <input type="radio" name="options" value="Update Department"> Updating a department<br>
+        <input type="radio" name="options" value="Delete Department"> Deleting a department and all its data <br>
+        </p>
+
+
+
+{##########################################################################################################################}
+{##}
+{## R4 doctor#}
+{##}
+{##########################################################################################################################}
+
+
+
+         <p><font size="4">
+            <label class="sr-only" for="rating" font size="6">Changing doctor table</label>
+        </font></p>
+
+        <p>
+        <input type="radio" name="options" value="Add Doctor"> Adding a new doctor <br>
+        <input type="radio" name="options" value="Delete Doctor"> Deleting a doctor and all its data <br>
+        </p>
+
+
+
+{##########################################################################################################################}
+{##}
+{## R5 phone numbers#}
+{##}
+{##########################################################################################################################}
+
+
+         <p><font size="4">
+            <label class="sr-only" for="rating" font size="6">Changing doctors phone number</label>
+        </font></p>
+
+        <p>
+        <input type="radio" name="options" value="Add Number"> Adding a new number <br>
+        <input type="radio" name="options" value="Update Number"> Updating a number<br>
+        <input type="radio" name="options" value="Delete Number"> Deleting a number <br>
+        </p>
+
+
+{##########################################################################################################################}
+{##}
+{## R6 credentials#}
+{##}
+{##########################################################################################################################}
+
+
+
+        <p><font size="4">
+            <label class="sr-only" for="rating" font size="6">Adding Doctor's credential or Specialization </label>
+        </font></p>
+
+        <p>
+        <input type="radio" name="options" value="Add Cred"> Adding a credential <br>
+        </p>
+
+        <p>
+        <input type="radio" name="options" value="Add Spec"> Adding a new Specialization <br>
+        </p>
+
+
+
+{##########################################################################################################################}
+{##}
+{##  R8 Reviews#}
+{##}
+{##########################################################################################################################}
+{##}
+{##}
+{##}
+{#        <p><font size="4">#}
+{#            <label class="sr-only" for="rating" font size="6">Making changes to doctors reviews</label>#}
+{#        </font></p>#}
+{##}
+{#        <p>#}
+{#        <input type="radio" name="options" value="Delete Review"> Deleting a review <br>#}
+{#        </p>#}
+
+
+{##}
+{##########################################################################################################################}
+{##}
+{## R9 Inpatients#}
+{##}
+{##########################################################################################################################}
+
+
+
+         <p><font size="4">
+            <label class="sr-only" for="rating" font size="6">Changing inpatient tables</label>
+        </font></p>
+
+        <p>
+        <input type="radio" name="options" value="Add in"> Adding an new inpatient procedure <br>
+        <input type="radio" name="options" value="Update in"> Updating a currently existing procedure<br>
+        <input type="radio" name="options" value="Delete in"> Deleting a procedure<br>
+        </p>
+
+
+
+{##########################################################################################################################}
+{##}
+{## R10 Outpatient#}
+{##}
+{##########################################################################################################################}
+
+
+        <p><font size="4">
+            <label class="sr-only" for="rating" font size="6">Make changes to outpatient tables</label>
+        </font></p>
+
+        <p>
+        <input type="radio" name="options" value="Add out"> Adding an new outpatient procedure <br>
+        <input type="radio" name="options" value="Update out"> Updating a currently existing procedure<br>
+        <input type="radio" name="options" value="Delete out"> Deleting a procedure <br>
+        </p>
+
+
+
+        <p><input type=submit value=Next></p>
+
+
+    </form>
+</body>
+</html>

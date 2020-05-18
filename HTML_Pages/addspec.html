@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adding Doctor Specialization</title>
+</head>
+<body>
+<div style="color: #ff0000;">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+</div>
+<form action="/addspec", method="POST">
+    <h1>Adding Specialization </h1>
+    <p>You must fill all fields or your changes will not be saved.</p>
+        <label>Pick a Doctor:</label>
+        <input list="Doctor-List" id="Doctor" name="Doctor" />
+        <datalist id="Doctor-List" value="Type Doctor"><br>
+        {% for doc in Doctor %}
+            <option value="{{doc[0]}}" selected>{{doc[0]}}</option>
+        {% endfor %}
+        </datalist><br>
+        Specialization: <input type="text" name="spec"><br>
+<input type="submit" value="Submit">
+</form>
+
+
+</body>
+</html>

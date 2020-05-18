@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adding A New Doctor</title>
+</head>
+<body>
+<div style="color: #ff0000;">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+</div>
+    <form action="/addDoctor", method="POST">
+    <h1>Adding Doctor</h1>
+        <p>You must fill all fields or your changes will not be saved.</p>
+
+        Name: <input type="text" name="Name"><br>
+  <input type="submit" value="Submit">
+</form>
+</body>
+</html>

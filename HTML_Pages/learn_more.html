@@ -1,0 +1,93 @@
+<html>
+    <style>
+        html{background-color: #87CEEB}
+        input.info{
+            width: 60%;
+        }
+        div.question{
+            margin-left: 15px;
+            margin-bottom: 15px;
+            border-radius: 25px;
+            background: white;
+            padding: 20px;
+            width: 400px;
+            height: 110px;
+
+            }
+
+        div.flex-tables{
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            background-color: white;
+            border-radius: 25px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            margin-left: 15px;
+            padding: 20px;
+        }
+        form.button{
+            margin-top: 10px;
+            margin-right: 20px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            font-family: "Trebuchet MS";
+        }
+
+                table {
+        border-collapse: collapse;
+        width: 100%;
+}
+
+        th, td {
+        text-align: left;
+        padding: 8px;
+        }
+
+tr:nth-child(even){background-color: lavenderblush}
+tr:hover {background-color:#f5f5f5;}
+
+th {
+  background-color: palevioletred;
+  color: white;
+}
+    </style>
+    <meta charset="UTF-8"/>
+    <title>Learn more</title>
+    <form class = "button" action="/patient-portal"> <input type="submit" value="Go back to patient portal"></form>
+    <form class = "button" action="/doctor"> <input type="submit" value="Find a doctor"></form>
+    <form class = "button" action="/cost"><input type="submit" value="Get cost of a procedure"></form>
+    <form class = "button" action="/department"><input type="submit" value="Get department rankings and wait times"></form>
+
+
+   <body>
+   <p style="font-family: 'Trebuchet MS'; color: white; font-size: 140%; margin-left: 5px">
+       Learn more about your doctor: Dr. {{ name }}</p>
+   <div class = "question">
+      <form action = "/learn-more" method = "post">
+
+         <p style="font-family: 'Trebuchet MS'">
+             Please enter the name of your doctor:
+             <input type = "text" class = "info" name = "Doctor" list="doctor_list"/></p>
+          <datalist id="doctor_list">
+              {% for name in doctors %}
+              <option value="{{ name }}">{{ name }}</option>
+              {% endfor %}
+          </datalist>
+
+         <p><input type = "submit" value = "submit" /></p>
+      </form>
+    </div>
+   <div class = "flex-tables">
+        <p style="margin-bottom: 10px; margin-left: 10px; font-family: 'Trebuchet MS'">Phone number </p>
+       {{table | safe }}</div>
+
+   <div class = "flex-tables">
+       <p style="margin-bottom: 10px; margin-left: 10px; font-family: 'Trebuchet MS'">Credentials </p>
+       {{table2 | safe }} </div>
+   <div class = "flex-tables">
+       <p style="margin-bottom: 10px; margin-left: 10px; font-family: 'Trebuchet MS'">Specialization </p>
+       {{table3 | safe }} </div>
+   </body>
+</html>

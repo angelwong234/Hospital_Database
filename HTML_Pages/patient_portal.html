@@ -1,0 +1,38 @@
+<html>
+    <meta charset="UTF-8"/>
+    <style>
+        html{background-color: #87CEEB}
+        h1{
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+        }
+        div.container{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 25px;
+            background: white;
+            padding: 50px;
+            width: 450px;
+            height: 200px;
+        }
+
+    </style>
+    <title>Welcome to the patient portal</title>
+    <form class = "button" action="/login"> <input type="submit" value="Login/Register"></form>
+    <h1>Welcome to the patient portal:</h1>
+   <body>
+   <div class = "container" style="font-family: 'Trebuchet MS'">
+       <p>I want to:</p>
+      <form action = "/patient-portal" method = "post">
+          <p><input type = "radio" name = "option" value="find"/> Find a doctor for my procedure</p>
+          <p><input type = "radio" name = "option" value="cost"/> Get a cost estimate for my procedure</p>
+          <p><input type = "radio" name = "option" value="learn"/> Learn more about your doctor</p>
+          <p><input type = "radio" name = "option" value="department"/> Get wait times and rankings for hospital departments</p>
+          <p><input type = "submit" value = "submit" /></p>
+      </form>
+   </div>
+   </body>
+</html>

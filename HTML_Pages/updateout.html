@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Updating outpatient procedure</title>
+</head>
+<body>
+<div style="color: #ff0000;">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+</div>
+<form action="/updateout", method="POST">
+    <h1>Updating outpatient procedure </h1>
+    <p>You must fill all fields or your changes will not be saved.</p>
+        <label>Pick a Hospital:</label>
+        <input list="Hospital-List" id="Hospital" name="Hospital" />
+        <datalist id="Hospital-List" value="Type Hospital"><br>
+        {% for hosp in Hospital %}
+            <option value="{{hosp[0]}}" selected>{{hosp[0]}}</option>
+        {% endfor %}
+        </datalist><br>
+
+        <label>Pick a Procedure:</label>
+        <input list="pro-List" id="pro" name="pro" />
+        <datalist id="pro-List" value="Type pro"><br>
+        {% for name in pro %}
+            <option value="{{name[0]}}" selected>{{name[0]}}</option>
+        {% endfor %}
+        </datalist><br>
+        Updated Cost of Procedure: <input type="text" name="New Cost"><br>
+<input type="submit" value="Submit">
+</form>
+
+
+</body>
+</html>

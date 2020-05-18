@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete User</title>
+</head>
+<body>
+<div style="color: #ff0000;">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+</div>
+<form name= User method="Post" action="/deleteuser">
+    <h1>Delete User</h1>
+    <label>Pick a user:</label>
+    <input list="User-List" id="User" name="User" />
+
+    <datalist id="User-List" value="User">
+        {% for name in User %}
+            <option value="{{name[0]}}" selected>{{name[0]}}</option>
+        {% endfor %}
+
+    </datalist>
+
+    <div>
+        <input class="btn" type="submit" value="submit">
+    </div>
+
+ </form>
+</select>
+
+
+</body>
+</html>

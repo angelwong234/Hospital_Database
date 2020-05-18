@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deleting a Hospital</title>
+</head>
+<body>
+
+<form name= hospital  method="Post" action="/deleteHospital">
+    <h1>Deleting A Hospital</h1>
+    <label>Pick a Hospital:</label>
+    <input list="Hospital-List" id="Hospital" name="Hospital" />
+
+    <datalist id="Hospital-List" value="Type Hospital">
+        {% for hosp in hospital %}
+            <option value="{{hosp[0]}}" selected>{{hosp[0]}}</option>
+        {% endfor %}
+
+    </datalist>
+    <div>
+        <input class="btn" type="submit" value="submit">
+    </div>
+
+ </form>
+</select>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<html>
+    <style>
+        html{background-color: #87CEEB}
+
+        div.question{
+            margin-top: 20px;
+            margin-left: 15px;
+            border-radius: 25px;
+            background: white;
+            padding: 20px;
+            width: 610px;
+            height: 50px;
+        }
+
+        div.options{
+            margin-top: 20px;
+            margin-bottom: 15px;
+            margin-left: 15px;
+            border-radius: 25px;
+            background: white;
+            padding: 20px;
+            width: 610px;
+            height: 180px;
+        }
+
+         form.button{
+            margin-top: 10px;
+            margin-right: 20px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            font-family: "Trebuchet MS";
+        }
+
+        div.flex-answer{
+            display: flex;
+            flex-direction: column;
+            width: 600px;
+            background-color: white;
+            border-radius: 25px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            margin-left: 15px;
+            padding: 20px;
+
+        }
+
+        table {
+        border-collapse: collapse;
+        width: 100%;
+}
+
+        th, td {
+        text-align: left;
+        padding: 8px;
+        }
+
+tr:nth-child(even){background-color: lavenderblush}
+tr:hover {background-color:#f5f5f5;}
+
+th {
+  background-color: palevioletred;
+  color: white;
+}
+    </style>
+
+    <meta charset="UTF-8"/>
+    <title>Cost of your procedure</title>
+    <form class = "button" action="/patient-portal"> <input type="submit" value="Go back to patient portal"></form>
+    <form class = "button" action="/doctor"> <input type="submit" value="Find a doctor"></form>
+    <form class = "button" action="/learn-more"><input type="submit" value="Learn more about your doctor"></form>
+    <form class = "button" action="/department"><input type="submit" value="Get department rankings and wait times"></form>
+   <body>
+   <p style="font-family: 'Trebuchet MS'; color: white; font-size: 140%; margin-left: 5px">
+       Are you trying to get a cost estimate for a procedure?</p>
+   <div class="question" style="font-family: 'Trebuchet MS'">
+
+      <form action = "/cost" method = "post">
+         <p> Please enter the name of a procedure:
+             <input type = "text" name = "Procedure" list = "proc_list"
+                    style="width:50%; margin-left: 5px"/></p>
+          <datalist id = "proc_list">
+              {% for name in procs%}
+              <option value="{{ name }}">{{ name }}</option>
+              {% endfor %}
+          </datalist>
+   </div>
+
+   <div class = "options" style="font-family: 'Trebuchet MS'">
+          Would you like to see the costs of procedures at different hospitals or for different doctors?
+          <p> <input type = "radio" name = "option" value = "hospital"> Hospital</p>
+          <p> <input type = "radio" name = "option" value = "doctor"> Doctor </p>
+          <p> <input type = "radio" name = "option" value = "both" checked="checked"> Both </p>
+         <p><input type = "submit" value = "submit" /></p>
+      </form>
+    </div>
+
+     <div class = flex-answer>
+         <p style="margin-bottom: 10px; margin-left: 10px; font-family: 'Trebuchet MS'">
+             Your procedure {{ name_proc }}</p>
+         {{table | safe}}
+     </div>
+   </body>
